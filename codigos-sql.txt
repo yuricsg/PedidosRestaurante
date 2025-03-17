@@ -10,7 +10,6 @@ CREATE TABLE clientes (
 create table pedidos(
 	id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
 	cliente_id UUID NOT NULL,
-    data_pedido TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     status VARCHAR(50) DEFAULT 'PENDENTE' CHECK (status IN ('PENDENTE', 'EM PREPARO', 'ENTREGUE', 'CANCELADO')),
     total DECIMAL(10,2) NOT NULL CHECK (total >= 0),
     FOREIGN KEY (cliente_id) REFERENCES clientes(id) ON DELETE CASCADE
