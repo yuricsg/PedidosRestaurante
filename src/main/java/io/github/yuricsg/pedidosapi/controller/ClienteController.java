@@ -1,6 +1,8 @@
 package io.github.yuricsg.pedidosapi.controller;
 
 import io.github.yuricsg.pedidosapi.dto.ClienteDTO;
+import io.github.yuricsg.pedidosapi.dto.ErroResposta;
+import io.github.yuricsg.pedidosapi.exceptions.RegistroDuplicadoException;
 import io.github.yuricsg.pedidosapi.model.Cliente;
 import io.github.yuricsg.pedidosapi.service.ClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,9 +19,14 @@ public class ClienteController {
     private ClienteService clienteService;
 
     @PostMapping
-    public ResponseEntity<Cliente> criarCliente(@RequestBody ClienteDTO clienteDTO) {
-        Cliente cliente = clienteService.salvarCliente(clienteDTO);
-        return ResponseEntity.status(HttpStatus.CREATED).body(cliente);
+    public ResponseEntity<Object> criarCliente(@RequestBody ClienteDTO clienteDTO) {
+        try {
+            Cliente cliente = clienteService.salvarCliente(clienteDTO);
+            return ResponseEntity.status(HttpStatus.CREATED).body(cliente);
+        }catch(RegistroDuplicadoException e){
+            var erroDTO = ErroResposta.conflito(e.getMessage());
+            return ResponseEntity.status(erroDTO.status()).body(erroDTO);
+        }
     }
 
     @GetMapping("/{id}")
@@ -29,9 +36,14 @@ public class ClienteController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Cliente> atualizarCliente(@PathVariable Long id, @RequestBody ClienteDTO clienteDTO) {
-        Cliente cliente = clienteService.atualizarCliente(id, clienteDTO);
-        return ResponseEntity.ok(cliente);
+    public ResponseEntity<Object> atualizarCliente(@PathVariable Long id, @RequestBody ClienteDTO clienteDTO) {
+        try {
+            Cliente cliente = clienteService.atualizarCliente(id, clienteDTO);
+            return ResponseEntity.ok(cliente);
+        }catch (RegistroDuplicadoException e){
+            var erroDTO = ErroResposta.conflito(e.getMessage());
+            return ResponseEntity.status(erroDTO.status()).body(erroDTO);
+        }
     }
 
     @DeleteMapping("/{id}")
