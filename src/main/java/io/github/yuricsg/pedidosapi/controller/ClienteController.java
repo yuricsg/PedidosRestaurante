@@ -5,6 +5,7 @@ import io.github.yuricsg.pedidosapi.dto.ErroResposta;
 import io.github.yuricsg.pedidosapi.exceptions.RegistroDuplicadoException;
 import io.github.yuricsg.pedidosapi.model.Cliente;
 import io.github.yuricsg.pedidosapi.service.ClienteService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,7 +20,7 @@ public class ClienteController {
     private ClienteService clienteService;
 
     @PostMapping
-    public ResponseEntity<Object> criarCliente(@RequestBody ClienteDTO clienteDTO) {
+    public ResponseEntity<Object> criarCliente(@RequestBody @Valid ClienteDTO clienteDTO) {
         try {
             Cliente cliente = clienteService.salvarCliente(clienteDTO);
             return ResponseEntity.status(HttpStatus.CREATED).body(cliente);
@@ -36,7 +37,7 @@ public class ClienteController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Object> atualizarCliente(@PathVariable Long id, @RequestBody ClienteDTO clienteDTO) {
+    public ResponseEntity<Object> atualizarCliente(@PathVariable Long id, @RequestBody @Valid ClienteDTO clienteDTO) {
         try {
             Cliente cliente = clienteService.atualizarCliente(id, clienteDTO);
             return ResponseEntity.ok(cliente);
