@@ -2,8 +2,6 @@ package io.github.yuricsg.pedidosapi.controller;
 
 import io.github.yuricsg.pedidosapi.dto.PedidoDTO;
 import io.github.yuricsg.pedidosapi.model.Pedido;
-import io.github.yuricsg.pedidosapi.repository.PedidosRepository;
-import io.github.yuricsg.pedidosapi.service.ClienteService;
 import io.github.yuricsg.pedidosapi.service.PedidoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
