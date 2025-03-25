@@ -1,5 +1,6 @@
 package io.github.yuricsg.pedidosapi.service;
 
+import io.github.yuricsg.pedidosapi.controller.mappers.PedidoMapper;
 import io.github.yuricsg.pedidosapi.dto.PedidoDTO;
 import io.github.yuricsg.pedidosapi.model.Cliente;
 import io.github.yuricsg.pedidosapi.model.Pedido;
@@ -16,17 +17,13 @@ public class PedidoService {
     private PedidosRepository pedidoRepository;
 
     @Autowired
+    public PedidoMapper pedidoMapper;
+
+    @Autowired
     private ClienteRepository clienteRepository;
 
     public Pedido salvarPedido(PedidoDTO dto) {
-        Cliente cliente = clienteRepository.findById(dto.clienteId())
-                .orElseThrow(() -> new RuntimeException("Cliente não encontrado"));
-
-        Pedido pedido = new Pedido();
-        pedido.setValor(dto.valor());
-        pedido.setCliente(cliente);
-        pedido.setStatus(dto.status());
-
+        Pedido pedido = pedidoMapper.toEntity(dto, clienteRepository);
         return pedidoRepository.save(pedido);
     }
 
