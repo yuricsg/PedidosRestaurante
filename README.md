@@ -29,13 +29,13 @@ O projeto foi desenvolvido com as seguintes tecnologias:
 
 ## 🏗 Arquitetura do Projeto
 O código foi estruturado seguindo boas práticas de arquitetura em camadas:
-📂 controller → Controladores que expõem os endpoints da API
-📂 service → Regras de negócio e manipulação dos dados
-📂 repository → Comunicação com o banco de dados via JPA
-📂 model → Definição das entidades persistidas no banco
-📂 dto → Objetos de transferência de dados entre requisição e resposta
-📂 config → Configurações do Spring Security
-📂 exception → Tratamento global de exceções
+- 📂 controller → Controladores que expõem os endpoints da API
+- 📂 service → Regras de negócio e manipulação dos dados
+- 📂 repository → Comunicação com o banco de dados via JPA
+- 📂 model → Definição das entidades persistidas no banco
+- 📂 dto → Objetos de transferência de dados entre requisição e resposta
+- 📂 config → Configurações do Spring Security
+- 📂 exception → Tratamento global de exceções
 
 ## 🛠 Instalação e Configuração
 ### 📌 Pré-requisitos
