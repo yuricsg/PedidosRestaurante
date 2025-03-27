@@ -3,6 +3,7 @@ package io.github.yuricsg.pedidosapi.controller;
 import io.github.yuricsg.pedidosapi.dto.PedidoDTO;
 import io.github.yuricsg.pedidosapi.model.Pedido;
 import io.github.yuricsg.pedidosapi.service.PedidoService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,7 +18,7 @@ public class PedidoController {
     private PedidoService pedidoService;
 
     @PostMapping
-    public ResponseEntity<Pedido> criarPedido(@RequestBody PedidoDTO pedidoDTO) {
+    public ResponseEntity<Pedido> criarPedido(@RequestBody @Valid PedidoDTO pedidoDTO) {
         Pedido pedido = pedidoService.salvarPedido(pedidoDTO);
         return ResponseEntity.status(HttpStatus.CREATED).body(pedido);
     }
@@ -29,7 +30,7 @@ public class PedidoController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Pedido> atualizarPedido(@PathVariable Long id, @RequestBody PedidoDTO pedidoDTO) {
+    public ResponseEntity<Pedido> atualizarPedido(@PathVariable Long id, @RequestBody @Valid PedidoDTO pedidoDTO) {
         Pedido pedido = pedidoService.atualizarPedido(id, pedidoDTO);
         return ResponseEntity.ok(pedido);
     }
