@@ -3,10 +3,8 @@ package io.github.yuricsg.pedidosapi.controller;
 import io.github.yuricsg.pedidosapi.dto.UsuarioDTO;
 import io.github.yuricsg.pedidosapi.model.Usuario;
 import io.github.yuricsg.pedidosapi.service.UsuarioService;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("usuarios")
@@ -19,10 +17,12 @@ public class UsuarioController {
     }
 
     @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
     public void salvar(@RequestBody UsuarioDTO dto){
         Usuario usuario = new Usuario();
-        usuario.setLogin(dto.getLogin());
-        usuario.setSenha(dto.getSenha());
+        usuario.setLogin(dto.login());
+        usuario.setSenha(dto.senha());
+        usuario.setRoles(dto.roles());
 
         service.salvar(usuario);
     }
