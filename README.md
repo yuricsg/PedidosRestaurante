@@ -64,13 +64,13 @@ spring.jpa.hibernate.ddl-auto=update
 spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
 ```
 
-### 4️⃣  Rodar a aplicação
+#### 4️⃣  Rodar a aplicação
 ```bash
 mvn spring-boot:run
 ```
 #### 5️⃣ Acesse a API via Postman ou outro cliente HTTP
 
-### 📌 Endpoints
+## 📌 Endpoints
 #### 🔑 Autenticação 
 | Método | Endpoint   | Acesso  |
 |--------|-----------|---------|
