@@ -5,14 +5,14 @@ API REST para gerenciamento de pedidos em um restaurante, desenvolvida com Sprin
 ## 📌 Sobre o Projeto
 
 Este projeto é uma API REST desenvolvida com Spring Boot, permitindo o gerenciamento de pedidos em um restaurante. Ele conta com:
-✅ Controle de acesso com Spring Security (diferencia permissões entre USER e ADMIN)
-✅ Banco de Dados PostgreSQL para persistência
-✅ Spring Data JPA para interação com o banco
-✅ DTOs para encapsular dados de requisição e resposta
-✅ Validações de entrada com Bean Validation
-✅ Tratamento de Exceções para requisições inválidas
-✅ Uso de Docker para rodar o PostgreSQL
-✅ Testes de API via Postman
+- Controle de acesso com Spring Security (diferencia permissões entre USER e ADMIN)
+- Banco de Dados PostgreSQL para persistência
+- Spring Data JPA para interação com o banco
+- DTOs para encapsular dados de requisição e resposta
+- Validações de entrada com Bean Validation
+- Tratamento de Exceções para requisições inválidas
+- Uso de Docker para rodar o PostgreSQL
+- Testes de API via Postman
 
 ## 🚀 Tecnologias Utilizadas
 O projeto foi desenvolvido com as seguintes tecnologias:
