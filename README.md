@@ -1,4 +1,4 @@
-# 📌 Pedidos API 🍔
+# 📌 Pedidos API 
 
 API REST para gerenciamento de pedidos em um restaurante, desenvolvida com Spring Boot e PostgreSQL.
 
@@ -29,16 +29,16 @@ O projeto foi desenvolvido com as seguintes tecnologias:
 
 ## 🏗 Arquitetura do Projeto
 O código foi estruturado seguindo boas práticas de arquitetura em camadas:
-- 📂 controller → Controladores que expõem os endpoints da API
-- 📂 service → Regras de negócio e manipulação dos dados
-- 📂 repository → Comunicação com o banco de dados via JPA
-- 📂 model → Definição das entidades persistidas no banco
-- 📂 dto → Objetos de transferência de dados entre requisição e resposta
-- 📂 config → Configurações do Spring Security
-- 📂 exception → Tratamento global de exceções
+- controller → Controladores que expõem os endpoints da API
+- service → Regras de negócio e manipulação dos dados
+- repository → Comunicação com o banco de dados via JPA
+- model → Definição das entidades persistidas no banco
+- dto → Objetos de transferência de dados entre requisição e resposta
+- config → Configurações do Spring Security
+- exception → Tratamento global de exceções
 
 ## 🛠 Instalação e Configuração
-### 📌 Pré-requisitos
+### Pré-requisitos
 - JDK 17+
 - Maven ou Gradle
 - Docker
@@ -50,7 +50,7 @@ git clone https://github.com/seu-usuario/pedidos-api.git
 cd pedidos-api
 ```
 
-### 📌 Configurar o Banco de Dados
+### Configurar o Banco de Dados
 #### 2️⃣  Rodando PostgreSQL com Docker
 ```bash
 docker run --name pedidos-db -e POSTGRES_DB=pedidos -e POSTGRES_USER=admin -e POSTGRES_PASSWORD=admin -p 5432:5432 -d postgres
@@ -93,5 +93,5 @@ mvn spring-boot:run
 | `GET`  | `/clientes` | **ADMIN** |
 | `POST` | `/clientes` | **ADMIN** |
 
-## 📝 Considerações
+## Considerações
 Este projeto foi desenvolvido com foco na estruturação do código utilizando DTOs, Services, Controllers e Repositories, além de boas práticas no Spring Security para controle de usuários e permissões. 🚀🔥
