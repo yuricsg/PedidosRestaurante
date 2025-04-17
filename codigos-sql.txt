@@ -14,3 +14,11 @@ create table pedidos(
     total DECIMAL(10,2) NOT NULL CHECK (total >= 0),
     FOREIGN KEY (cliente_id) REFERENCES clientes(id) ON DELETE CASCADE
 );
+
+create table client(
+    id uuid not null primary key,
+    client_id varchat(150) not null,
+    client_secret varchar(400) not null,
+    redirect_uri varchar(200) not null,
+    scope varchar(50)
+);
